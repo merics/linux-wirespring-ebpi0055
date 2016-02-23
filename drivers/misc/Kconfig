@@ -59,6 +59,25 @@ config ATMEL_PWM
 	  on certain Atmel processors.  Pulse Width Modulation is used for
 	  purposes including software controlled power-efficient backlights
 	  on LCD displays, motor control, and waveform generation.
+ 
+config FSL_IMX6_WATCHDOG
+        tristate "FRESSCAL IMX6 WATCHDOG support"
+        default y
+        help
+          This option enables device driver support for the WATCHDOG
+          on FRESSCAL IMX6 family processors.
+
+          If you need to use WATCHDOG on your board, say Y or M here.
+          If you're not sure, say N.
+
+config FSL_IMX6_GPIO
+        tristate "FRESSCAL IMX6 Gpio support"
+        default y
+        help
+          This option enables device driver support for the gpios
+          used by user on imx6 kit.
+          If you need to use gpios on your board, say Y or M here.
+          If you're not sure, say N.
 
 config ATMEL_TCLIB
 	bool "Atmel AT32/AT91 Timer/Counter Library"

@@ -23,6 +23,19 @@ config TOUCHSCREEN_88PM860X
 	  To compile this driver as a module, choose M here: the
 	  module will be called 88pm860x-ts.
 
+config TOUCHSCREEN_ICN85XX_TS
+        tristate "ICN85XX_TS"
+        depends on I2C
+        help
+          Say y here to support the touchscreen found on icn85xx
+
+config TOUCHSCREEN_ICN8503F
+        tristate "ICN8503F basic touchscreen support for ebpi0055 rev3 board"
+        depends on I2C
+	depends on OF_GPIO
+        help
+          Say y here to support the touchscreen found on ebpi0055 rev3 boards
+
 config TOUCHSCREEN_ADS7846
 	tristate "ADS7846/TSC2046/AD7873 and AD(S)7843 based touchscreens"
 	depends on SPI_MASTER
