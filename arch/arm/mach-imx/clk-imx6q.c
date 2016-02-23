@@ -546,8 +546,10 @@ static void __init imx6q_clocks_init(struct device_node *ccm_node)
 		 * bug. Set the muxes to the requested values before registering the
 		 * ldb_di_sel clocks.
 		 */
+		
 		disable_anatop_clocks();
 		init_ldb_clks(np);
+		
 		clk[IMX6QDL_CLK_LDB_DI0_SEL]      = imx_clk_mux_ldb("ldb_di0_sel", base + 0x2c, 9,  3, ldb_di_sels,      ARRAY_SIZE(ldb_di_sels));
 		clk[IMX6QDL_CLK_LDB_DI1_SEL]      = imx_clk_mux_ldb("ldb_di1_sel", base + 0x2c, 12, 3, ldb_di_sels,      ARRAY_SIZE(ldb_di_sels));
 	}

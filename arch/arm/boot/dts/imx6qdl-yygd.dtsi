@@ -641,6 +641,7 @@ ads7846: ads7846@0 {
 
 &ldb {
 	status = "okay";
+	ext-ref = <1>;
 
 	lvds-channel@0 {
 		fsl,data-mapping = "spwg";
@@ -651,7 +652,7 @@ ads7846: ads7846@0 {
 		display-timings {
 			native-mode = <&timing0>;
 			timing0: hsd100pxn1 {
-				clock-frequency = <51200000>;
+				clock-frequency = <65000000>;
 				hactive = <1024>;
 				vactive = <600>;
 				hback-porch = <150>;
@@ -668,21 +669,6 @@ ads7846: ads7846@0 {
 		fsl,data-mapping = "spwg";
 		fsl,data-width = <18>;
 		status = "disabled";
-
-		display-timings {
-			native-mode = <&timing1>;
-			timing1: hsd100pxn1 {
-				clock-frequency = <51200000>;
-				hactive = <1024>;
-				vactive = <600>;
-				hback-porch = <150>;
-				hfront-porch = <150>;
-				vback-porch = <15>;
-				vfront-porch = <15>;
-				hsync-len = <20>;
-				vsync-len = <5>;
-			};
-		};
 	};
 };
 
