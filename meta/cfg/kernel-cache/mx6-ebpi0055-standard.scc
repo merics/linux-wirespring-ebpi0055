@@ -3,6 +3,7 @@ define KTYPE standard
 define KARCH arm
 
 kconf non-hardware fsl-base.cfg
+kconf non-hardware sound.cfg
 kconf non-hardware usb-serial.cfg
 kconf non-hardware touchscreen.cfg
 kconf non-hardware ppp.cfg
