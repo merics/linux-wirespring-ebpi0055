@@ -86,20 +86,22 @@
 			regulator-name = "tlv320aic3x-supply";
 		};
 
-		/* HACK */
 		reg_ampl: ampl_supply {
 			compatible = "regulator-fixed";
 			regulator-name = "ampl-supply";
 			gpio = <&gpio6 11 0>;
 			enable-active-high;
+			regulator-always-on;
+			regulator-boot-on;
 		};
 
-		/* HACK */
 		reg_ampr: ampr_supply {
 			compatible = "regulator-fixed";
 			regulator-name = "ampr-supply";
 			gpio = <&gpio6 14 0>;
 			enable-active-high;
+			regulator-always-on;
+			regulator-boot-on;
 		};
 
 		reg_dovdd: 1p8_supply {
@@ -138,12 +140,8 @@
 		ssi-controller = <&ssi1>;
 		audio-codec = <&codec>;
 		audio-routing =
-		"Headphone Jack", "HPOUTL",
-		"Headphone Jack", "HPOUTR",
 		"Ext Spk", "HPLOUT",
-		"Ext Spk", "HPROUT",
-		"LINE1L", "Mic Bias",
-		"Mic Bias", "DMIC";
+		"Ext Spk", "HPROUT";
 		mux-int-port = <1>;
 		mux-ext-port = <4>;
 	};
@@ -297,13 +295,6 @@ ads7846: ads7846@0 {
 	status = "okay";
 };
 
-&gpc {
-	fsl,cpu_pupscr_sw2iso = <0xf>;
-	fsl,cpu_pupscr_sw = <0xf>;
-	fsl,cpu_pdnscr_iso2sw = <0x1>;
-	fsl,cpu_pdnscr_iso = <0x1>;
-};
-
 &hdmi_audio {
 	status = "okay";
 };
@@ -356,8 +347,8 @@ ads7846: ads7846@0 {
 		ai3x-micbias-vg = <2>;
 
 		IOVDD-supply = <&reg_audio>;
-		DVDD-supply = <&reg_ampl>; /* HACK */
-		AVDD-supply = <&reg_ampr>; /* HACK */
+		DVDD-supply = <&reg_audio>;
+		AVDD-supply = <&reg_audio>;
 		DRVDD-supply = <&reg_audio>;
 	};
 

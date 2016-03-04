@@ -1022,13 +1022,7 @@ static int aic3x_mute(struct snd_soc_dai *dai, int mute)
 		snd_soc_write(codec, LDAC_VOL, ldac_reg);
 		snd_soc_write(codec, RDAC_VOL, rdac_reg);
 	}
-        snd_soc_write(codec, 15, 0x70);
-        snd_soc_write(codec, 16, 0x70);
-        snd_soc_write(codec, LDAC_VOL, 0x5);
-        snd_soc_write(codec, RDAC_VOL, 0x5);
-        snd_soc_write(codec, HPLOUT_CTRL, 0x9d);
-        snd_soc_write(codec, HPROUT_CTRL, 0x9d);
-        return 0;
+    return 0;
 }
 
 static int aic3x_set_dai_sysclk(struct snd_soc_dai *codec_dai,
